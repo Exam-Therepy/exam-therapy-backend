@@ -32,8 +32,8 @@ class MainUserManager(UserManager):
         user.save(using=self.db)
 
     def create_superuser(self, email=None, password=None, **extra_fields):
-        # extra_fields.setdefault("is_admin", True)
-        # extra_fields.setdefault("is_stuff", True)
-        # extra_fields.setdefault("is_active", True)
+        extra_fields.setdefault("is_superuser", True)
+        extra_fields.setdefault("is_stuff", True)
+        extra_fields.setdefault("is_active", True)
         # print(email)
         return self.create_user(email, 1, password, **extra_fields)

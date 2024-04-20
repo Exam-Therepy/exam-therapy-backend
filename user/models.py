@@ -28,6 +28,9 @@ class MainUser(AbstractBaseUser, PermissionsMixin):
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
     payment_id = models.IntegerField(null=True, blank=True)
+    is_active = models.BooleanField(null=False, default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['mobile', 'full_name']
