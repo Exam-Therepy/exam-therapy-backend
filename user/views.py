@@ -9,7 +9,5 @@ from user.models import MainUser
 
 @api_view(['POST'])
 def signup(request):
-    user_obj = MainUser()
-    user_obj.get
-
+    print(request.body)
     return JsonResponse({"Hello": "World"})

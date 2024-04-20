@@ -1,7 +1,6 @@
 from django.contrib.auth.models import UserManager
 
 
-
 def normalize_mobile_number(mobile_number):
     if len(str(mobile_number)) < 10:
         raise ValueError("Invalid mobile number format")

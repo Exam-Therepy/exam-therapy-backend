@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import include, path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+
+handler404 = lambda request, exception=None: JsonResponse(
+    {'error': 'Requested URL not found, Please check URL or Method',
+     'status_code': 404}
+    , status=404)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
